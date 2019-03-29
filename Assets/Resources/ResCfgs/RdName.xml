@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<item ID="1">
+		<surname>Half</surname>
+		<firstname>potato</firstname>
+	</item>
+	<item ID="2">
+		<surname>Rotten</surname>
+		<firstname>tomato</firstname>
+	</item>
+	<item ID="3">
+		<surname>fresh</surname>
+		<firstname>cow</firstname>
+	</item>
+	<item ID="4">
+		<surname>everlasting</surname>
+		<firstname>fart</firstname>
+	</item>
+	<item ID="5">
+		<surname>fearsome</surname>
+		<firstname>wench</firstname>
+	</item>
+</root>

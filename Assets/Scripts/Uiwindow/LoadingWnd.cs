@@ -21,6 +21,7 @@ public class LoadingWnd : WindowRoot
         base.InitWnd();
         FGWidth = imgFG.GetComponent<RectTransform>().sizeDelta.x;
         SetText (txtTips,"TIPS:chicken head soup  can recover your 100% HP");
+        //AddTips("sadsad11111111111111111111111111");
         SetText (txtPrg, "0%");
         imgFG.fillAmount = 0;
         imgPoint.transform.localPosition = new Vector3(-604F, 0, 0);
@@ -30,7 +31,9 @@ public class LoadingWnd : WindowRoot
         imgFG.fillAmount = prg;
         float posX=prg*FGWidth-604;
         imgPoint.GetComponent<RectTransform>().anchoredPosition = new Vector2(posX, 0);
+        //GameRoot.AddTips("sadsad");
 
     }
+   
 
 }

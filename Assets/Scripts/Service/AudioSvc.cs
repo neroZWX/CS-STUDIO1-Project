@@ -19,7 +19,7 @@ public class AudioSvc : MonoBehaviour
         Debug.Log("Init AudioSvc....");
     }
     public void PlayBGMusic(string name, bool isLoop = true) {
-        AudioClip audio = ResSvc.instance.loadAudio("ResAudio/"+name,true);
+        AudioClip audio = ResSvc.instance.LoadAudio("ResAudio/"+name,true);
         if (BGAudio.clip ==null|| BGAudio.clip.name!= audio.name) {
             BGAudio.clip = audio;
             BGAudio.loop = isLoop;
@@ -27,7 +27,7 @@ public class AudioSvc : MonoBehaviour
         }
     }
     public void PlayUIAudio(string name) {
-        AudioClip audio = ResSvc.instance.loadAudio("ResAudio/" + name, true);
+        AudioClip audio = ResSvc.instance.LoadAudio("ResAudio/" +name,true);
             UIAudio.clip = audio;
             UIAudio.Play();
         }

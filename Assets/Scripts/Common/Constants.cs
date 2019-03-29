@@ -14,4 +14,8 @@ public class Constants
     public const string SceneLogin = "SceneLogin";
     //music name
     public const string BGlogin = "bgLogin";
+    //lonin button audio
+    public const string UiLoginBtn = "uiLoginBtn";
+    //UI click audio
+    public const string UiClickBtn = "uiClickBtn";
 }

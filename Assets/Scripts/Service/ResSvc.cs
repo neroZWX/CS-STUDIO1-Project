@@ -8,6 +8,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Xml;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,9 +16,11 @@ public class ResSvc : MonoBehaviour
 {   // can be called by others class
     public static ResSvc instance = null;
     public void InitSvc() {
-        Debug.Log("Init Svc.... ");
         instance = this;
-    }
+        InitRdNameCfg();
+        Debug.Log("Init Svc.... ");
+       
+    }//for loading 
     private Action prgCB = null;
     public void AsyncLoadScene(string scenename,Action loaded) {
         GameRoot.instance.loadingWnd.SetWndState();
@@ -47,16 +50,72 @@ public class ResSvc : MonoBehaviour
     }
     // load and cache music
     private Dictionary<string, AudioClip> adDic = new Dictionary<string, AudioClip>();
-    public AudioClip loadAudio(String path, bool cache = false) {
+    public AudioClip LoadAudio(string path, bool cache = false)
+    {
         AudioClip au = null;
-        if (!adDic.TryGetValue(path, out au)) {
-            au= Resources.Load<AudioClip>(path);
-        }
-        au = Resources.Load<AudioClip>(path);
-        if (cache) {
-            adDic.Add(path, au);
+        if (!adDic.TryGetValue(path, out au))
+        {
+            au = Resources.Load<AudioClip>(path);
 
+            if (cache)
+            {
+                adDic.Add(path, au);
+            }
         }
         return au;
     }
+     
+    #region InitCfgs
+    private List<string> surnameLst = new List<string>();
+    private List<string> firstnameLst = new List<string>();
+    private void InitRdNameCfg()
+    {
+        // get xml file
+        TextAsset xml = Resources.Load<TextAsset>(PathDefine.RdNameCfgs);
+        if (!xml)
+        {
+            Debug.LogError("xml file:" + PathDefine.RdNameCfgs + "not exist");
+        }
+        else
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(xml.text);
+            XmlNodeList nodeList = doc.SelectSingleNode("root").ChildNodes;
+            for (int i = 0; i < nodeList.Count; i++)
+            {
+                XmlElement ele = nodeList[i] as XmlElement;
+                if (ele.GetAttributeNode("ID") == null)
+                {
+                    continue;
+
+                }
+                //ele.GetAttributeNode("ID");
+                int ID = Convert.ToInt32(ele.GetAttributeNode("ID").InnerText);
+
+                foreach (XmlElement e in nodeList[i].ChildNodes)
+                {
+                    switch (e.Name)
+                    {
+                        case "surname":
+                            surnameLst.Add(e.InnerText);
+                            break;
+                        case "firstname":
+                            firstnameLst.Add(e.InnerText);
+                            break;
+                    }
+                }
+            }
+
+        }
+    }
+    public string GetRdNameData(bool fullname = true) {
+        System.Random rd = new System.Random();
+        string rdName = surnameLst[Tools.RDInt(0,surnameLst.Count-1)];
+       
+        rdName += firstnameLst[Tools.RDInt(0, firstnameLst.Count - 1)];
+        
+        return rdName;
+    }
+  #endregion
+
 }

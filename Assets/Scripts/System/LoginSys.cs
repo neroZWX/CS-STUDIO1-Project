@@ -9,21 +9,30 @@
 using UnityEngine;
 using System;
 
-public class LoginSys: MonoBehaviour 
+public class LoginSys:SystemRoot 
 {
     public static LoginSys instance = null;
     public LoginWnd loginWnd;
-    public void InitSys() {
+    public CreateWnd createWnd;
+    public override  void InitSys() {
+        base.InitSys();
         instance = this;
         Debug.Log("Init login System");
     }
     public void EnterLogin() {
        //display loading progress
-        ResSvc.instance.AsyncLoadScene(Constants.SceneLogin,OpenLoginWnd);
+        resSvc.AsyncLoadScene(Constants.SceneLogin,OpenLoginWnd);
     }
     public void OpenLoginWnd() {
         //after loading then open login interface
         loginWnd.SetWndState();
-        AudioSvc.Instace.PlayBGMusic(Constants.BGlogin);
+        audioSvc.PlayBGMusic(Constants.BGlogin);
+    }
+    public void RsLogin() {
+        GameRoot.AddTips("Login Successfully");
+        //open creation character UI
+        createWnd.SetWndState();
+        //close login UI
+        loginWnd.SetWndState(false);
     }
 }
