@@ -41,6 +41,8 @@ public class GameRoot : MonoBehaviour
         // init login
         LoginSys log = GetComponent<LoginSys>();
         log.InitSys();
+        MainCitySys mainCitySys = GetComponent<MainCitySys>();
+        mainCitySys.InitSys();
 
         // enter login interface
         log.EnterLogin();

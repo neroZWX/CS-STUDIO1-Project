@@ -12,8 +12,10 @@ public class Constants
 {
     // scene name
     public const string SceneLogin = "SceneLogin";
+    public const string SceneMainCity = "SceneMainCity";
     //music name
     public const string BGlogin = "bgLogin";
+    public const string BGMainCity = "bgMainCity";
     //lonin button audio
     public const string UiLoginBtn = "uiLoginBtn";
     //UI click audio

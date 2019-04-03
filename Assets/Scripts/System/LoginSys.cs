@@ -11,6 +11,7 @@ using System;
 
 public class LoginSys:SystemRoot 
 {
+    
     public static LoginSys instance = null;
     public LoginWnd loginWnd;
     public CreateWnd createWnd;
@@ -34,5 +35,14 @@ public class LoginSys:SystemRoot
         createWnd.SetWndState();
         //close login UI
         loginWnd.SetWndState(false);
+        
+        
+        
+        //MainCitySys.Instance.EnterMainCity();
+    }
+    public void ClickEnterMainCaity() {
+        MainCitySys.Instance.EnterMainCity();
+        createWnd.SetWndState(false);
+        //audioSvc.PlayBGMusic(Constants.BGMainCity);
     }
 }
