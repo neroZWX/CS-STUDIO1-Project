@@ -6,7 +6,9 @@
 	function: Nothing
 *****************************************************/
 
+using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class WindowRoot : MonoBehaviour 
@@ -66,5 +68,30 @@ public class WindowRoot : MonoBehaviour
     protected void SetText(Text txt, int num = 0) {
         SetText(txt, num.ToString());
     }
-#endregion
+    protected T GetOrAddComponetct<T>(GameObject go) where T : Component {
+        T t = go.GetComponent<T>();
+        if (t == null) {
+            t = go.AddComponent<T>();
+        }
+        return t;
+    }
+    #endregion
+    #region Click Events
+    protected void OnClickDown(GameObject go, Action<PointerEventData> cb){
+        PElistener listener = GetOrAddComponetct<PElistener>(go);
+        listener.OnClickDown = cb;
+  }
+
+    protected void OnClickUp(GameObject go, Action<PointerEventData> cb)
+    {
+        PElistener listener = GetOrAddComponetct<PElistener>(go);
+        listener.OnClickUp = cb;
+    }
+
+    protected void OnDrag(GameObject go, Action<PointerEventData> cb)
+    {
+        PElistener listener = GetOrAddComponetct<PElistener>(go);
+        listener.OnDrag = cb;
+    }
+    #endregion
 }

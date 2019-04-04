@@ -288,8 +288,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Compond\MakeChar\Shader\MogoFakeLight.shader" />
+    <None Include="Assets\Compond\MakeChar\Shader\PlayerShader.shader" />
     <None Include="Assets\Compond\MakeScene\SceneShader\MogoTransparentDiffuse.shader" />
     <None Include="Assets\Compond\Shader\MogoSkybox.shader" />
+    <None Include="Assets\Compond\Shader\MonsterShader.shader" />
     <None Include="Assets\Compond\Shader\Mul-skybox.shader" />
     <None Include="Assets\Resources\ResCfgs\RdName.xml" />
   </ItemGroup>

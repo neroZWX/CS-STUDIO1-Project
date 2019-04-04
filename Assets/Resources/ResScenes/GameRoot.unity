@@ -3691,6 +3691,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 955faab34f49ac049b2a0b9bb00d2ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ImageControllerTough: {fileID: 2055430579}
+  Controller1: {fileID: 1780626549}
+  Controller2: {fileID: 1973028254}
 --- !u!114 &1185199698 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 114125666400971032, guid: f6ba79f89587e5549b0a3abdf0d0e3ba,
@@ -4893,7 +4896,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.7, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1973028254
