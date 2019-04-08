@@ -13,6 +13,7 @@ public class Constants
     // scene name
     public const string SceneLogin = "SceneLogin";
     public const string SceneMainCity = "SceneMainCity";
+    public const int MainCityMapID = 10000;
     //music name
     public const string BGlogin = "bgLogin";
     public const string BGMainCity = "bgMainCity";
@@ -20,4 +21,6 @@ public class Constants
     public const string UiLoginBtn = "uiLoginBtn";
     //UI click audio
     public const string UiClickBtn = "uiClickBtn";
+    public const int BlendIdle = 0;
+    public const int BlendWalk = 1;
 }

@@ -36,17 +36,17 @@ public class PlayerController : MonoBehaviour
 
     private float targetBlend;
     private float currentBlend;
-
-
-    private void Start()
+    public void Init()
     {
         CamTrans = Camera.main.transform;
         camOffset = transform.position - CamTrans.position;
     }
+
     private void Update()
     {
         #region Input
-        float h = Input.GetAxis("Horizontal");
+        /*
+         float h = Input.GetAxis("Horizontal");
         float V = Input.GetAxis("Vertical");
         Vector2 _dir = new Vector2(h, V).normalized;
         if (_dir != Vector2.zero)
@@ -60,6 +60,7 @@ public class PlayerController : MonoBehaviour
             SetBlend(0);
             
         }
+        */
         #endregion
         if (currentBlend!=targetBlend) {
             UpdateMixBlend();
@@ -87,7 +88,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void SetBlend(float blend) {
+    public void SetBlend(float blend) {
         targetBlend = blend;
 
     }

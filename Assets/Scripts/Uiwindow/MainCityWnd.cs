@@ -41,6 +41,7 @@ public class MainCityWnd : WindowRoot
             Controller1.transform.position = DefaultPos;
             SetActive(Controller1, false);
             Controller2.transform.localPosition = Vector2.zero;
+            MainCitySys.Instance.SetMoveDir(Vector2.zero);
         });
         OnDrag(ImageControllerTough.gameObject, (PointerEventData evt) => {
             Vector2 Con2 = evt.position - StartPos;
@@ -53,6 +54,7 @@ public class MainCityWnd : WindowRoot
             else {
                 Controller2.transform.position = evt.position;
             }
+            MainCitySys.Instance.SetMoveDir(Con2.normalized);
         });
 
 }
