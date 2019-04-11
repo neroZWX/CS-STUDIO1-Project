@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public CharacterController ctrl;
     private Transform CamTrans;
     private Vector3 camOffset;
-    private int playerSpeed = 2;
+    private int playerSpeed =2;
 
     private Vector2 dir = Vector2.zero;
     private bool isMove = false;
